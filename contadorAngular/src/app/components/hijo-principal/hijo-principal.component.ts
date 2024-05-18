@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hijo-principal',
@@ -11,6 +11,9 @@ export class HijoPrincipalComponent {
   @Input() infoVar: string = '';
   contadorPrincipal: number = 0;
 
+  @Output() agregarEstudianteEvent: EventEmitter<string> =
+    new EventEmitter<string>();
+
   aumentarContador() {
     let y = this.contadorPrincipal++;
     console.log(y);
@@ -22,5 +25,9 @@ export class HijoPrincipalComponent {
   resetearContador() {
     this.contadorPrincipal = 0;
     console.log(this.contadorPrincipal);
+  }
+
+  agregarEstudianteHijo() {
+    this.agregarEstudianteEvent.emit('Nombre');
   }
 }

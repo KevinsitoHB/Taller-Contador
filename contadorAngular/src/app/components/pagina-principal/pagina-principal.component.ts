@@ -7,4 +7,10 @@ import { HijoPrincipalComponent } from '../hijo-principal/hijo-principal.compone
   templateUrl: './pagina-principal.component.html',
   styleUrl: './pagina-principal.component.css',
 })
-export class PaginaPrincipalComponent {}
+export class PaginaPrincipalComponent {
+  estudiantes = new Array();
+
+  agregarEstudiante(estudiante: string) {
+    this.estudiantes.push(estudiante);
+  }
+}
